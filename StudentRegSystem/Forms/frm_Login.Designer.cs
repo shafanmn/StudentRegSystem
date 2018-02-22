@@ -34,16 +34,18 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.txtnic = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtlname = new System.Windows.Forms.TextBox();
+            this.txtfname = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtfname = new System.Windows.Forms.TextBox();
-            this.txtlname = new System.Windows.Forms.TextBox();
-            this.txtcont = new System.Windows.Forms.TextBox();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtcont = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,9 +55,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username";
+            this.label1.Text = "Login Id";
             // 
             // label2
             // 
@@ -76,7 +78,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(59, 140);
+            this.btnLogin.Location = new System.Drawing.Point(59, 172);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(77, 29);
             this.btnLogin.TabIndex = 3;
@@ -86,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(142, 140);
+            this.button1.Location = new System.Drawing.Point(142, 172);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 29);
             this.button1.TabIndex = 4;
@@ -96,8 +98,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnRegister);
             this.groupBox1.Controls.Add(this.txtcont);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.btnRegister);
+            this.groupBox1.Controls.Add(this.txtnic);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.txtlname);
             this.groupBox1.Controls.Add(this.txtfname);
@@ -106,10 +110,63 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(209, 182);
+            this.groupBox1.Size = new System.Drawing.Size(209, 222);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Student Register";
+            this.groupBox1.Text = "New Student";
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(38, 174);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(77, 29);
+            this.btnRegister.TabIndex = 9;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // txtnic
+            // 
+            this.txtnic.Location = new System.Drawing.Point(86, 101);
+            this.txtnic.MaxLength = 12;
+            this.txtnic.Name = "txtnic";
+            this.txtnic.Size = new System.Drawing.Size(112, 20);
+            this.txtnic.TabIndex = 7;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(121, 174);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(77, 29);
+            this.btnClear.TabIndex = 10;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtlname
+            // 
+            this.txtlname.Location = new System.Drawing.Point(86, 72);
+            this.txtlname.MaxLength = 15;
+            this.txtlname.Name = "txtlname";
+            this.txtlname.Size = new System.Drawing.Size(112, 20);
+            this.txtlname.TabIndex = 6;
+            // 
+            // txtfname
+            // 
+            this.txtfname.Location = new System.Drawing.Point(86, 43);
+            this.txtfname.MaxLength = 15;
+            this.txtfname.Name = "txtfname";
+            this.txtfname.Size = new System.Drawing.Size(112, 20);
+            this.txtfname.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(25, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "NIC";
             // 
             // label3
             // 
@@ -129,65 +186,17 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "First Name";
             // 
-            // label5
+            // txtLogin
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Contact No";
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(82, 41);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(137, 20);
-            this.txtUser.TabIndex = 1;
-            // 
-            // txtfname
-            // 
-            this.txtfname.Location = new System.Drawing.Point(86, 43);
-            this.txtfname.Name = "txtfname";
-            this.txtfname.Size = new System.Drawing.Size(112, 20);
-            this.txtfname.TabIndex = 5;
-            // 
-            // txtlname
-            // 
-            this.txtlname.Location = new System.Drawing.Point(86, 72);
-            this.txtlname.Name = "txtlname";
-            this.txtlname.Size = new System.Drawing.Size(112, 20);
-            this.txtlname.TabIndex = 6;
-            // 
-            // txtcont
-            // 
-            this.txtcont.Location = new System.Drawing.Point(86, 101);
-            this.txtcont.Name = "txtcont";
-            this.txtcont.Size = new System.Drawing.Size(112, 20);
-            this.txtcont.TabIndex = 7;
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.Location = new System.Drawing.Point(38, 142);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(77, 29);
-            this.btnRegister.TabIndex = 8;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(121, 142);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(77, 29);
-            this.btnClear.TabIndex = 9;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.txtLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtLogin.Location = new System.Drawing.Point(82, 41);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(137, 20);
+            this.txtLogin.TabIndex = 1;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtUser);
+            this.groupBox2.Controls.Add(this.txtLogin);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnLogin);
             this.groupBox2.Controls.Add(this.txtPass);
@@ -195,16 +204,33 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(237, 14);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(229, 179);
+            this.groupBox2.Size = new System.Drawing.Size(229, 219);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Log in";
+            // 
+            // txtcont
+            // 
+            this.txtcont.Location = new System.Drawing.Point(86, 129);
+            this.txtcont.MaxLength = 10;
+            this.txtcont.Name = "txtcont";
+            this.txtcont.Size = new System.Drawing.Size(112, 20);
+            this.txtcont.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Contact No";
             // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 205);
+            this.ClientSize = new System.Drawing.Size(478, 246);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_Login";
@@ -231,11 +257,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.TextBox txtcont;
+        private System.Windows.Forms.TextBox txtnic;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox txtlname;
         private System.Windows.Forms.TextBox txtfname;
-        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtcont;
+        private System.Windows.Forms.Label label6;
     }
 }

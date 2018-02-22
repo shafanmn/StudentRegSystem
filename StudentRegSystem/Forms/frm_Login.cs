@@ -15,6 +15,8 @@ namespace StudentRegSystem.Forms
     public partial class frm_Login : Form
     {
         SqlConnection conn = Classes.dbConnect.getConnection();
+        Classes.functions func = new functions();
+        string nextId = null;
 
         public frm_Login()
         {
@@ -23,15 +25,16 @@ namespace StudentRegSystem.Forms
 
         private void frm_Login_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sUdbDataSet.Users' table. You can move, or remove it, as needed.
-
+            //Get Next Student Id
+            nextId = "ST"+func.getNextStudentId(this.conn);
+            MessageBox.Show("Next Id is " + nextId);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string uname = txtUser.Text;
+            string id = txtLogin.Text;
             string pass = txtPass.Text;
-            string q = "SELECT * FROM Users WHERE username = '"+uname+"';";
+            string q = "SELECT * FROM Users WHERE Id = '"+id+"';";
             Form frm;
 
             try
@@ -42,9 +45,9 @@ namespace StudentRegSystem.Forms
 
                 if (dr.Read())
                 {
-                    if(dr.GetString(2) == pass)
+                    if(dr.GetString(1) == pass)
                     {
-                        MessageBox.Show(uname + " Logged in Successfully!");
+                        MessageBox.Show(dr.GetString(3) + " " + dr.GetString(4) + " Logged in Successfully!");
                         txtPass.Text = "";
                         this.Hide();
                         //Show Appropriate Forms
@@ -69,7 +72,7 @@ namespace StudentRegSystem.Forms
                 else
                 {
                     MessageBox.Show("Username and/or password is incorrect!");
-                    txtUser.Select();
+                    txtLogin.Select();
                 }
 
             }
@@ -94,7 +97,49 @@ namespace StudentRegSystem.Forms
             txtfname.Select();
             txtfname.Clear();
             txtlname.Clear();
+            txtnic.Clear();
             txtcont.Clear();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            string fname = txtfname.Text;
+            string lname = txtlname.Text;
+            string nic = txtnic.Text;
+            string cont = txtcont.Text;
+
+            string q = "INSERT INTO Users(Id,password,access,fname,lname,nic,contact) "+
+                       "VALUES(@id,@pass,@access,@fname,@lname,@nic,@cont);";
+            SqlCommand cmd = new SqlCommand(q, conn);
+
+            cmd.Parameters.AddWithValue("@id", nextId);
+            cmd.Parameters.AddWithValue("@pass", nic);
+            cmd.Parameters.AddWithValue("@access", 3);
+            cmd.Parameters.AddWithValue("@fname", fname);
+            cmd.Parameters.AddWithValue("@lname", lname);
+            cmd.Parameters.AddWithValue("@nic", nic);
+            cmd.Parameters.AddWithValue("@cont", cont);
+
+            try
+            {
+                conn.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Student Registered Successfully!\n Your Login Id is " + nextId + " and use your NIC as password for first login.");
+                    txtLogin.Text = nextId;
+                    nextId = func.getNextStudentId(this.conn);
+                    btnClear_Click(sender, e);
+                    txtPass.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
