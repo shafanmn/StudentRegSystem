@@ -24,15 +24,15 @@ namespace StudentRegSystem.Forms
         private void frm_Login_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'sUdbDataSet.Users' table. You can move, or remove it, as needed.
-            this.usersTableAdapter.Fill(this.sUdbDataSet.Users);
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string uname = cmbUser.Text;
+            string uname = txtUser.Text;
             string pass = txtPass.Text;
             string q = "SELECT * FROM Users WHERE username = '"+uname+"';";
+            Form frm;
 
             try
             {
@@ -47,18 +47,29 @@ namespace StudentRegSystem.Forms
                         MessageBox.Show(uname + " Logged in Successfully!");
                         txtPass.Text = "";
                         this.Hide();
-                        Forms.frm_Main m = new frm_Main();
-                        m.uAccess = dr.GetInt32(3);
-                        m.loginForm = this;
-                        m.currentuser = uname;
-                        m.Show();
+                        //Show Appropriate Forms
+                        int access = dr.GetInt32(3);
+                        
+                        switch (access)
+                        {
+                            case 1: frm = new frm_Reg(); frm.Show(); break;
+                            case 2: frm = new frm_Prof(); frm.Show(); break;
+                            case 3: frm = new frm_Student(); frm.Show(); break;
+                        }
+
+                            
                     }
                     else
                     {
-                        MessageBox.Show("Username and/or Password is incorrect!");
+                        MessageBox.Show("Incorrect Password!");
                         txtPass.Focus();
                         txtPass.SelectAll();
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Username and/or password is incorrect!");
+                    txtUser.Select();
                 }
 
             }
@@ -76,6 +87,14 @@ namespace StudentRegSystem.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtfname.Select();
+            txtfname.Clear();
+            txtlname.Clear();
+            txtcont.Clear();
         }
     }
 }
