@@ -12,9 +12,22 @@ namespace StudentRegSystem.Forms
 {
     public partial class frm_Student : Form
     {
+        public string studentId = null;
+        public Form loginForm;
         public frm_Student()
         {
             InitializeComponent();
+        }
+
+        private void frm_Student_Load(object sender, EventArgs e)
+        {
+            this.Text += this.studentId + " Logged In";
+        }
+
+        private void btnLogoff_Click(object sender, EventArgs e)
+        {
+            loginForm.Show();
+            this.Close();
         }
     }
 }

@@ -26,8 +26,8 @@ namespace StudentRegSystem.Forms
         private void frm_Login_Load(object sender, EventArgs e)
         {
             //Get Next Student Id
-            nextId = "ST"+func.getNextStudentId(this.conn);
-            MessageBox.Show("Next Id is " + nextId);
+            nextId = func.getNextStudentId(this.conn);
+            //MessageBox.Show("Next Id is " + nextId);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -35,7 +35,6 @@ namespace StudentRegSystem.Forms
             string id = txtLogin.Text;
             string pass = txtPass.Text;
             string q = "SELECT * FROM Users WHERE Id = '"+id+"';";
-            Form frm;
 
             try
             {
@@ -51,13 +50,13 @@ namespace StudentRegSystem.Forms
                         txtPass.Text = "";
                         this.Hide();
                         //Show Appropriate Forms
-                        int access = dr.GetInt32(3);
+                        int access = dr.GetInt32(2);
                         
                         switch (access)
                         {
-                            case 1: frm = new frm_Reg(); frm.Show(); break;
-                            case 2: frm = new frm_Prof(); frm.Show(); break;
-                            case 3: frm = new frm_Student(); frm.Show(); break;
+                            case 1: Forms.frm_Reg re = new frm_Reg(); re.Show(); re.loginForm = this; break;
+                            case 2: Forms.frm_Prof pr = new frm_Prof(); pr.profId = dr.GetString(0); pr.loginForm = this; pr.Show() ; break;
+                            case 3: Forms.frm_Student st = new frm_Student(); st.studentId = dr.GetString(0); st.loginForm = this; st.Show(); break;
                         }
 
                             
@@ -123,10 +122,12 @@ namespace StudentRegSystem.Forms
             try
             {
                 conn.Open();
+
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     MessageBox.Show("Student Registered Successfully!\n Your Login Id is " + nextId + " and use your NIC as password for first login.");
                     txtLogin.Text = nextId;
+                    conn.Close();
                     nextId = func.getNextStudentId(this.conn);
                     btnClear_Click(sender, e);
                     txtPass.Focus();
@@ -135,10 +136,6 @@ namespace StudentRegSystem.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
             }
         }
     }

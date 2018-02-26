@@ -34,6 +34,8 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtcont = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtnic = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
@@ -44,8 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtcont = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,23 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Student";
+            // 
+            // txtcont
+            // 
+            this.txtcont.Location = new System.Drawing.Point(86, 129);
+            this.txtcont.MaxLength = 10;
+            this.txtcont.Name = "txtcont";
+            this.txtcont.Size = new System.Drawing.Size(112, 20);
+            this.txtcont.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Contact No";
             // 
             // btnRegister
             // 
@@ -208,23 +225,6 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Log in";
-            // 
-            // txtcont
-            // 
-            this.txtcont.Location = new System.Drawing.Point(86, 129);
-            this.txtcont.MaxLength = 10;
-            this.txtcont.Name = "txtcont";
-            this.txtcont.Size = new System.Drawing.Size(112, 20);
-            this.txtcont.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Contact No";
             // 
             // frm_Login
             // 

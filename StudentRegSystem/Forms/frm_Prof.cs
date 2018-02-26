@@ -12,6 +12,8 @@ namespace StudentRegSystem.Forms
 {
     public partial class frm_Prof : Form
     {
+        public string profId = null;
+        public Form loginForm;
         public frm_Prof()
         {
             InitializeComponent();
