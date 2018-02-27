@@ -66,6 +66,33 @@ namespace StudentRegSystem.Classes
             return next;
         }
 
+        public string getNextCourseId(SqlConnection conn)
+        {
+            string next = "IT";
+            string q = "SELECT RIGHT(CONCAT('000',SUBSTRING(Id,3,3)+1),3) FROM Course ORDER BY Id DESC;";
+            SqlCommand cmd = new SqlCommand(q, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    next += dr.GetString(0);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return next;
+        }
+
         public void LoadToDatagridview(DataGridView dgv, string q)
         {
             SqlConnection c = dbConnect.getConnection();
@@ -78,5 +105,6 @@ namespace StudentRegSystem.Classes
             dgv.DataSource = ds.Tables[0];
         }
 
+        
     }//End of Class
 }

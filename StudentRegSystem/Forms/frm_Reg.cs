@@ -43,6 +43,13 @@ namespace StudentRegSystem.Forms
             txtStPass.Enabled = s;
         }
 
+        private void enabledCourse(bool s)
+        {
+            txtCoName.Enabled = s;
+            numCoDur.Enabled = s;
+            numCoFee.Enabled = s;
+        }
+
         private void btnLogoff_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -365,7 +372,124 @@ namespace StudentRegSystem.Forms
                 dgvCourses.Columns[0].Width = 35;   //Id
                 dgvCourses.Columns[2].Width = 25;   //Months
                 dgvCourses.Columns[3].Width = 65;   //Fee
+                lblCoId.Text = fun.getNextCourseId(this.conn);
             }
+        }
+
+        private void btnCoNew_Click(object sender, EventArgs e)
+        {
+            if(btnCoNew.Text == "New")
+            {
+                btnCoClear_Click(sender, e);
+                enabledCourse(true);
+                btnCoNew.Text = "Add";
+                btnCoClear.Enabled = false;
+                btnCoSave.Enabled = false;
+            }
+            else
+            {
+                string name = txtCoName.Text;
+                string dur = numCoDur.Value.ToString();
+                string fee = numCoFee.Value.ToString();
+                string id = lblCoId.Text;
+
+                string q = "INSERT INTO Course(Id,name,duration,fee) " +
+                            "VALUES(@id,@name,@dur,@fee);";
+
+                SqlCommand cmd = new SqlCommand(q, conn);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@dur", dur);
+                cmd.Parameters.AddWithValue("@fee", fee);
+
+                try
+                {
+                    conn.Open();
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Course Details Added Successfully!");
+                        btnCoNew.Text = "New";
+                        btnCoNew.Enabled = true;
+                        fun.LoadToDatagridview(dgvCourses, "SELECT Id 'ID', name 'Name', duration 'Months', CONVERT(varchar,CAST(fee AS Money),1) 'Fee' FROM Course ;");
+                        enabledCourse(false);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                    btnCoClear_Click(sender, e);
+                }
+            }
+        }
+
+        private void btnCoClear_Click(object sender, EventArgs e)
+        {
+            lblCoId.Text = fun.getNextCourseId(this.conn);
+            txtCoName.Clear();
+            numCoDur.Value = numCoDur.Minimum;
+            numCoFee.Value = numCoFee.Minimum;
+            txtCoName.Focus();
+            btnCoSave.Enabled = false;
+        }
+
+        private void btnSearchCourse_Click(object sender, EventArgs e)
+        {
+            if(btnSearchCourse.Text == "Search")
+            {
+                btnSearchCourse.Text = "Clear";
+                string key = txtCoSearch.Text;
+                txtCoSearch.Enabled = false;
+                string q = "SELECT Id 'ID', name 'Name', duration 'Months', CONVERT(varchar,CAST(fee AS Money),1) 'Fee' FROM Course WHERE Id like '%"+key+"%' OR name like '%"+key+"%' ;";
+                fun.LoadToDatagridview(dgvCourses, q);
+            }
+            else
+            {
+                txtCoSearch.Focus();
+                txtCoSearch.SelectAll();
+                txtCoSearch.Clear();
+                fun.LoadToDatagridview(dgvCourses, "SELECT Id 'ID', name 'Name', duration 'Months', CONVERT(varchar,CAST(fee AS Money),1) 'Fee' FROM Course ;");
+                btnSearchCourse.Text = "Search";
+                txtCoSearch.Enabled = true;
+            }
+        }
+
+        private void dgvCourses_Click(object sender, EventArgs e)
+        {
+            string cid = dgvCourses.SelectedCells[0].Value.ToString();
+            btnCoSave.Enabled = true;
+            enabledCourse(true);
+
+            string q = "SELECT * FROM Course WHERE Id = '" + cid + "';";
+            SqlCommand cmd = new SqlCommand(q, this.conn);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    lblCoId.Text = dr[0].ToString();
+                    txtCoName.Text = dr[1].ToString();
+                    numCoDur.Value = Convert.ToDecimal(dr[2].ToString());
+                    numCoFee.Value = Convert.ToDecimal(dr[3].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
     }
 }
