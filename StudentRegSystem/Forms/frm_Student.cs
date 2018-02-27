@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentRegSystem.Classes;
+using System.Data.SqlClient;
 
 namespace StudentRegSystem.Forms
 {
@@ -14,6 +16,7 @@ namespace StudentRegSystem.Forms
     {
         public string studentId = null;
         public Form loginForm;
+        SqlConnection conn = dbConnect.getConnection();
         public frm_Student()
         {
             InitializeComponent();
@@ -22,6 +25,8 @@ namespace StudentRegSystem.Forms
         private void frm_Student_Load(object sender, EventArgs e)
         {
             this.Text += this.studentId + " Logged In";
+
+
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
