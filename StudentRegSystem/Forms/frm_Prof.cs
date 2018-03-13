@@ -74,8 +74,56 @@ namespace StudentRegSystem.Forms
         {
             if(tabControl1.SelectedIndex == 1)
             {
-                fun.LoadToDatagridview()
+                //Load Search Courses
+                fun.LoadToDatagridview(dgvPrSearch, "SELECT c.Id 'ID', c.name 'Course Name'FROM Course c, Teaching t WHERE c.Id <> t.courseId;");
+                dgvPrSearch.Columns[0].Width = 40;
+
+                //Load Teaching Courses
+                fun.LoadToDatagridview(dgvPrTeach, "select c.Id 'ID', c.name 'Course Name' from Teaching t, Course c, Users u WHERE t.courseId = c.Id and t.professorId = u.Id and u.Id = '"+this.profId+"';");
+                dgvPrSearch.Columns[0].Width = 40;
             }
+        }
+
+        private void txtPrSch_TextChanged(object sender, EventArgs e)
+        {
+            string txt = txtPrSch.Text;
+            fun.LoadToDatagridview(dgvPrSearch, "SELECT Id 'ID', name 'Course Name' From Course WHERE Id like '%"+txt+"%' OR name like '%"+txt+"%';");
+        }
+                
+        private void dgvPrTeach_MouseClick(object sender, MouseEventArgs e)
+        {
+            string cid = dgvPrTeach.SelectedCells[0].Value.ToString();
+            //Get Course Details
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            SqlDataReader dr = fun.getDetails("SELECT * FROM Course WHERE Id = '" + cid + "'");
+            while (dr.Read())
+            {
+                lblTecId.Text = dr[0].ToString();
+                lblTecName.Text = dr[1].ToString();
+            }
+            conn.Close();
+        }
+
+        private void dgvPrSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            string cid = dgvPrSearch.SelectedCells[0].Value.ToString();
+            //Get Course Details
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            SqlDataReader dr = fun.getDetails("SELECT * FROM Course WHERE Id = '" + cid + "'");
+            while (dr.Read())
+            {
+                lblSerId.Text = dr[0].ToString();
+                lblSerName.Text = dr[1].ToString();
+            }
+            conn.Close();
+        }
+
+        private void btnPrTeach_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Are you sure you want to teach\n" + lblSerId + " " + lblSerName);
         }
     }
 }
