@@ -64,7 +64,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPID = new System.Windows.Forms.Label();
             this.dgvProfessors = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtCrName = new System.Windows.Forms.TabPage();
+            this.btnSearchCourse = new System.Windows.Forms.Button();
+            this.txtCoSearch = new System.Windows.Forms.TextBox();
+            this.numCoDur = new System.Windows.Forms.NumericUpDown();
+            this.txtCoName = new System.Windows.Forms.TextBox();
+            this.numCoFee = new System.Windows.Forms.NumericUpDown();
+            this.dgvCourses = new System.Windows.Forms.DataGridView();
+            this.btnCoClear = new System.Windows.Forms.Button();
+            this.btnCoNew = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnCoSave = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblCoId = new System.Windows.Forms.Label();
             this.btnLogoff = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,17 +86,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessors)).BeginInit();
+            this.txtCrName.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCoDur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCoFee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.txtCrName);
             this.tabControl1.Location = new System.Drawing.Point(3, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(758, 340);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -434,21 +453,204 @@
             this.dgvProfessors.TabIndex = 0;
             this.dgvProfessors.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfessors_CellClick);
             // 
-            // tabPage2
+            // txtCrName
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(750, 314);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Courses";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.txtCrName.BackColor = System.Drawing.Color.Silver;
+            this.txtCrName.Controls.Add(this.btnSearchCourse);
+            this.txtCrName.Controls.Add(this.txtCoSearch);
+            this.txtCrName.Controls.Add(this.numCoDur);
+            this.txtCrName.Controls.Add(this.txtCoName);
+            this.txtCrName.Controls.Add(this.numCoFee);
+            this.txtCrName.Controls.Add(this.dgvCourses);
+            this.txtCrName.Controls.Add(this.btnCoClear);
+            this.txtCrName.Controls.Add(this.btnCoNew);
+            this.txtCrName.Controls.Add(this.label18);
+            this.txtCrName.Controls.Add(this.label15);
+            this.txtCrName.Controls.Add(this.label17);
+            this.txtCrName.Controls.Add(this.btnCoSave);
+            this.txtCrName.Controls.Add(this.label16);
+            this.txtCrName.Controls.Add(this.lblCoId);
+            this.txtCrName.Location = new System.Drawing.Point(4, 22);
+            this.txtCrName.Name = "txtCrName";
+            this.txtCrName.Padding = new System.Windows.Forms.Padding(3);
+            this.txtCrName.Size = new System.Drawing.Size(750, 314);
+            this.txtCrName.TabIndex = 1;
+            this.txtCrName.Text = "Courses";
+            // 
+            // btnSearchCourse
+            // 
+            this.btnSearchCourse.Location = new System.Drawing.Point(328, 12);
+            this.btnSearchCourse.Name = "btnSearchCourse";
+            this.btnSearchCourse.Size = new System.Drawing.Size(72, 33);
+            this.btnSearchCourse.TabIndex = 19;
+            this.btnSearchCourse.Text = "Search";
+            this.btnSearchCourse.UseVisualStyleBackColor = true;
+            this.btnSearchCourse.Click += new System.EventHandler(this.btnSearchCourse_Click);
+            // 
+            // txtCoSearch
+            // 
+            this.txtCoSearch.Location = new System.Drawing.Point(6, 19);
+            this.txtCoSearch.Name = "txtCoSearch";
+            this.txtCoSearch.Size = new System.Drawing.Size(316, 20);
+            this.txtCoSearch.TabIndex = 18;
+            // 
+            // numCoDur
+            // 
+            this.numCoDur.Enabled = false;
+            this.numCoDur.Location = new System.Drawing.Point(515, 128);
+            this.numCoDur.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numCoDur.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numCoDur.Name = "numCoDur";
+            this.numCoDur.Size = new System.Drawing.Size(50, 20);
+            this.numCoDur.TabIndex = 17;
+            this.numCoDur.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // txtCoName
+            // 
+            this.txtCoName.Enabled = false;
+            this.txtCoName.Location = new System.Drawing.Point(515, 88);
+            this.txtCoName.Name = "txtCoName";
+            this.txtCoName.Size = new System.Drawing.Size(215, 20);
+            this.txtCoName.TabIndex = 7;
+            // 
+            // numCoFee
+            // 
+            this.numCoFee.DecimalPlaces = 2;
+            this.numCoFee.Enabled = false;
+            this.numCoFee.Increment = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numCoFee.Location = new System.Drawing.Point(515, 175);
+            this.numCoFee.Maximum = new decimal(new int[] {
+            200000,
+            0,
+            0,
+            0});
+            this.numCoFee.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numCoFee.Name = "numCoFee";
+            this.numCoFee.Size = new System.Drawing.Size(98, 20);
+            this.numCoFee.TabIndex = 16;
+            this.numCoFee.ThousandsSeparator = true;
+            this.numCoFee.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
+            // dgvCourses
+            // 
+            this.dgvCourses.AllowUserToAddRows = false;
+            this.dgvCourses.AllowUserToDeleteRows = false;
+            this.dgvCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.Location = new System.Drawing.Point(6, 51);
+            this.dgvCourses.Name = "dgvCourses";
+            this.dgvCourses.ReadOnly = true;
+            this.dgvCourses.RowHeadersVisible = false;
+            this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCourses.Size = new System.Drawing.Size(394, 257);
+            this.dgvCourses.TabIndex = 0;
+            this.dgvCourses.Click += new System.EventHandler(this.dgvCourses_Click);
+            // 
+            // btnCoClear
+            // 
+            this.btnCoClear.Enabled = false;
+            this.btnCoClear.Location = new System.Drawing.Point(635, 238);
+            this.btnCoClear.Name = "btnCoClear";
+            this.btnCoClear.Size = new System.Drawing.Size(50, 30);
+            this.btnCoClear.TabIndex = 15;
+            this.btnCoClear.Text = "Clear";
+            this.btnCoClear.UseVisualStyleBackColor = true;
+            this.btnCoClear.Click += new System.EventHandler(this.btnCoClear_Click);
+            // 
+            // btnCoNew
+            // 
+            this.btnCoNew.Location = new System.Drawing.Point(515, 238);
+            this.btnCoNew.Name = "btnCoNew";
+            this.btnCoNew.Size = new System.Drawing.Size(50, 30);
+            this.btnCoNew.TabIndex = 13;
+            this.btnCoNew.Text = "New";
+            this.btnCoNew.UseVisualStyleBackColor = true;
+            this.btnCoNew.Click += new System.EventHandler(this.btnCoNew_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(417, 51);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(27, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "ID  :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(417, 177);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 13);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Course Fee";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(417, 91);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Course Name";
+            // 
+            // btnCoSave
+            // 
+            this.btnCoSave.Enabled = false;
+            this.btnCoSave.Location = new System.Drawing.Point(575, 238);
+            this.btnCoSave.Name = "btnCoSave";
+            this.btnCoSave.Size = new System.Drawing.Size(50, 30);
+            this.btnCoSave.TabIndex = 14;
+            this.btnCoSave.Text = "Save";
+            this.btnCoSave.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(417, 132);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(91, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Duration (Months)";
+            // 
+            // lblCoId
+            // 
+            this.lblCoId.AutoSize = true;
+            this.lblCoId.Location = new System.Drawing.Point(512, 51);
+            this.lblCoId.Name = "lblCoId";
+            this.lblCoId.Size = new System.Drawing.Size(35, 13);
+            this.lblCoId.TabIndex = 1;
+            this.lblCoId.Text = "label1";
             // 
             // btnLogoff
             // 
             this.btnLogoff.Location = new System.Drawing.Point(697, 3);
             this.btnLogoff.Name = "btnLogoff";
-            this.btnLogoff.Size = new System.Drawing.Size(61, 31);
+            this.btnLogoff.Size = new System.Drawing.Size(61, 30);
             this.btnLogoff.TabIndex = 1;
             this.btnLogoff.Text = "Log Off";
             this.btnLogoff.UseVisualStyleBackColor = true;
@@ -459,6 +661,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 359);
+            this.ControlBox = false;
             this.Controls.Add(this.btnLogoff);
             this.Controls.Add(this.tabControl1);
             this.Name = "frm_Reg";
@@ -473,6 +676,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessors)).EndInit();
+            this.txtCrName.ResumeLayout(false);
+            this.txtCrName.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCoDur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCoFee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -481,7 +689,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage txtCrName;
         private System.Windows.Forms.Button btnLogoff;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvProfessors;
@@ -517,5 +725,19 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblSID;
         private System.Windows.Forms.DataGridView dgvStudents;
+        private System.Windows.Forms.NumericUpDown numCoDur;
+        private System.Windows.Forms.NumericUpDown numCoFee;
+        private System.Windows.Forms.Button btnCoClear;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblCoId;
+        private System.Windows.Forms.Button btnCoSave;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnCoNew;
+        private System.Windows.Forms.DataGridView dgvCourses;
+        private System.Windows.Forms.TextBox txtCoName;
+        private System.Windows.Forms.Button btnSearchCourse;
+        private System.Windows.Forms.TextBox txtCoSearch;
     }
 }

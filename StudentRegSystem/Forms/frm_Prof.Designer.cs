@@ -28,19 +28,253 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPrEditPr = new System.Windows.Forms.Button();
+            this.lblPrnic = new System.Windows.Forms.Label();
+            this.lblPrName = new System.Windows.Forms.Label();
+            this.lblPrId = new System.Windows.Forms.Label();
+            this.txtPrpass = new System.Windows.Forms.TextBox();
+            this.txtPrCont = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnLogOff = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(-1, 10);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(602, 290);
+            this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Silver;
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(594, 264);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "My Profile";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnPrEditPr);
+            this.groupBox1.Controls.Add(this.lblPrnic);
+            this.groupBox1.Controls.Add(this.lblPrName);
+            this.groupBox1.Controls.Add(this.lblPrId);
+            this.groupBox1.Controls.Add(this.txtPrpass);
+            this.groupBox1.Controls.Add(this.txtPrCont);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(9, 8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(245, 250);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Login Details";
+            // 
+            // btnPrEditPr
+            // 
+            this.btnPrEditPr.Location = new System.Drawing.Point(162, 205);
+            this.btnPrEditPr.Name = "btnPrEditPr";
+            this.btnPrEditPr.Size = new System.Drawing.Size(62, 30);
+            this.btnPrEditPr.TabIndex = 11;
+            this.btnPrEditPr.Text = "Edit";
+            this.btnPrEditPr.UseVisualStyleBackColor = true;
+            this.btnPrEditPr.Click += new System.EventHandler(this.btnStEditPr_Click);
+            // 
+            // lblPrnic
+            // 
+            this.lblPrnic.AutoSize = true;
+            this.lblPrnic.Location = new System.Drawing.Point(92, 101);
+            this.lblPrnic.Name = "lblPrnic";
+            this.lblPrnic.Size = new System.Drawing.Size(30, 13);
+            this.lblPrnic.TabIndex = 10;
+            this.lblPrnic.Text = "N.i.C";
+            // 
+            // lblPrName
+            // 
+            this.lblPrName.AutoSize = true;
+            this.lblPrName.Location = new System.Drawing.Point(92, 66);
+            this.lblPrName.Name = "lblPrName";
+            this.lblPrName.Size = new System.Drawing.Size(35, 13);
+            this.lblPrName.TabIndex = 9;
+            this.lblPrName.Text = "Name";
+            // 
+            // lblPrId
+            // 
+            this.lblPrId.AutoSize = true;
+            this.lblPrId.Location = new System.Drawing.Point(91, 31);
+            this.lblPrId.Name = "lblPrId";
+            this.lblPrId.Size = new System.Drawing.Size(58, 13);
+            this.lblPrId.TabIndex = 8;
+            this.lblPrId.Text = "Student ID";
+            // 
+            // txtPrpass
+            // 
+            this.txtPrpass.Enabled = false;
+            this.txtPrpass.Location = new System.Drawing.Point(94, 168);
+            this.txtPrpass.Name = "txtPrpass";
+            this.txtPrpass.Size = new System.Drawing.Size(130, 20);
+            this.txtPrpass.TabIndex = 7;
+            // 
+            // txtPrCont
+            // 
+            this.txtPrCont.Enabled = false;
+            this.txtPrCont.Location = new System.Drawing.Point(94, 133);
+            this.txtPrCont.Name = "txtPrCont";
+            this.txtPrCont.Size = new System.Drawing.Size(130, 20);
+            this.txtPrCont.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 171);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Contact No";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "N.i.C";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Professor ID";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.Silver;
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(594, 264);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Teaching";
+            // 
+            // btnLogOff
+            // 
+            this.btnLogOff.Location = new System.Drawing.Point(534, 0);
+            this.btnLogOff.Name = "btnLogOff";
+            this.btnLogOff.Size = new System.Drawing.Size(64, 31);
+            this.btnLogOff.TabIndex = 3;
+            this.btnLogOff.Text = "Log Off";
+            this.btnLogOff.UseVisualStyleBackColor = true;
+            this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(5, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(206, 223);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(5, 9);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // frm_Prof
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(600, 297);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnLogOff);
+            this.Controls.Add(this.tabControl1);
             this.Name = "frm_Prof";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Professor :";
+            this.Load += new System.EventHandler(this.frm_Prof_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnPrEditPr;
+        private System.Windows.Forms.Label lblPrnic;
+        private System.Windows.Forms.Label lblPrName;
+        private System.Windows.Forms.Label lblPrId;
+        private System.Windows.Forms.TextBox txtPrpass;
+        private System.Windows.Forms.TextBox txtPrCont;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnLogOff;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

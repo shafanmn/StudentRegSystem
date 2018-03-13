@@ -23,6 +23,8 @@ namespace StudentRegSystem.Forms
             InitializeComponent();
         }
 
+        
+
         private void frm_Login_Load(object sender, EventArgs e)
         {
             //Get Next Student Id
