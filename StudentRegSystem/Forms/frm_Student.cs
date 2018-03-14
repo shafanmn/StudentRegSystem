@@ -61,13 +61,47 @@ namespace StudentRegSystem.Forms
                 string cont = txtStCont.Text;
                 string pass = txtStpass.Text;
 
-                fun.updateTable("UPDATE Users SET contact='" + cont + "', password='" + pass + "' WHERE Id='"+this.studentId+"';");
+                fun.executeQuery("UPDATE Users SET contact='" + cont + "', password='" + pass + "' WHERE Id='"+this.studentId+"';");
 
                 txtStCont.Enabled = false;
                 txtStpass.Enabled = false;
                 btnStEditPr.Text = "Edit";
 
             }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl1.SelectedIndex == 1) //Enroll Tab
+            {
+                //Load Search Courses
+                fun.LoadToDatagridview(dgvStSearch, "SELECT c.Id 'ID', c.name 'Course Name' FROM Course c WHERE c.Id NOT IN (SELECT courseId FROM Enroll WHERE studentId = '"+this.studentId+"');");
+                dgvStSearch.Columns[0].Width = 40;
+            }
+        }
+
+        private void txtStSch_TextChanged(object sender, EventArgs e)
+        {
+            fun.LoadToDatagridview(dgvStSearch, "SELECT c.Id 'ID', c.name 'Course Name' FROM Course c WHERE c.Id NOT IN (SELECT courseId FROM Enroll WHERE studentId = '" + this.studentId + "');");
+            dgvStSearch.Columns[0].Width = 40;
+        }
+
+        private void dgvStSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            string cid = dgvStSearch.SelectedCells[0].Value.ToString();
+            //Get Course Details
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            SqlDataReader dr = fun.getDetails("SELECT * FROM Course WHERE Id = '" + cid + "'");
+            while (dr.Read())
+            {
+                lblStEnID.Text = dr[0].ToString();
+                lblStEnName.Text = dr[1].ToString();
+                lblStEnDuration.Text = dr[2].ToString() +" Months";
+                lblStEnFee.Text = (Decimal.Parse(dr[3].ToString()) / 100).ToString("C", System.Globalization.CultureInfo.GetCultureInfo("ta"));
+            }
+            conn.Close();
+            btnStApplyCourse.Enabled = true;
         }
     }//End Class
 }//End Namespace

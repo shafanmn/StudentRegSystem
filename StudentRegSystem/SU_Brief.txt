@@ -1,0 +1,29 @@
+Student Registration System for Stafford University
+
+############# ROLES & FUNCTIONS ###############
+
+Student
+	Register for course
+
+Professor
+	Select course to teach
+
+Registrar
+	Create curriculum
+	Generate catalog for the semester
+	Maintain info about Student, Professor & Courses
+	
+	
+Billing System
+	Receive billing info from the system
+	
+	
+############# FLOW OF THE SYSTEM ###############
+
+1.Student request a course catalog
+2.Student choose courses ( 3 < students in courses <= 10)
+	Students in course < 3 will be canceled.
+3.RegSystem sends info to the BillSystem
+4.Professor logs in and selects course to teach
+	See student info
+5.Student can add or drop courses for a period of time

@@ -95,9 +95,13 @@ namespace StudentRegSystem.Classes
 
         public void LoadToDatagridview(DataGridView dgv, string q)
         {
+            dgv.DataSource = null;
+            dgv.Refresh();
+
             SqlConnection c = dbConnect.getConnection();
             var dataAdapter = new SqlDataAdapter(q, c);
 
+            
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
             dataAdapter.Fill(ds);
@@ -118,7 +122,7 @@ namespace StudentRegSystem.Classes
             
         }
 
-        public void updateTable(string query)
+        public void executeQuery(string query)
         {
             SqlConnection conn = dbConnect.getConnection();
             SqlCommand cmd = new SqlCommand(query, conn);

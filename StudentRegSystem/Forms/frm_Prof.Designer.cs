@@ -44,7 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPrRemove = new System.Windows.Forms.Button();
             this.lblTecName = new System.Windows.Forms.Label();
             this.lblTecId = new System.Windows.Forms.Label();
             this.dgvPrTeach = new System.Windows.Forms.DataGridView();
@@ -219,7 +219,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.btnPrRemove);
             this.groupBox3.Controls.Add(this.lblTecName);
             this.groupBox3.Controls.Add(this.lblTecId);
             this.groupBox3.Controls.Add(this.dgvPrTeach);
@@ -230,14 +230,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Teaching Courses";
             // 
-            // button2
+            // btnPrRemove
             // 
-            this.button2.Location = new System.Drawing.Point(6, 248);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 26);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "<< Remove";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPrRemove.Enabled = false;
+            this.btnPrRemove.Location = new System.Drawing.Point(6, 248);
+            this.btnPrRemove.Name = "btnPrRemove";
+            this.btnPrRemove.Size = new System.Drawing.Size(72, 26);
+            this.btnPrRemove.TabIndex = 4;
+            this.btnPrRemove.Text = "<< Remove";
+            this.btnPrRemove.UseVisualStyleBackColor = true;
+            this.btnPrRemove.Click += new System.EventHandler(this.btnPrRemove_Click);
             // 
             // lblTecName
             // 
@@ -289,6 +291,7 @@
             // 
             // btnPrTeach
             // 
+            this.btnPrTeach.Enabled = false;
             this.btnPrTeach.Location = new System.Drawing.Point(162, 248);
             this.btnPrTeach.Name = "btnPrTeach";
             this.btnPrTeach.Size = new System.Drawing.Size(68, 26);
@@ -397,7 +400,7 @@
         private System.Windows.Forms.TextBox txtPrSch;
         private System.Windows.Forms.DataGridView dgvPrSearch;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPrRemove;
         private System.Windows.Forms.Label lblTecName;
         private System.Windows.Forms.Label lblTecId;
         private System.Windows.Forms.DataGridView dgvPrTeach;

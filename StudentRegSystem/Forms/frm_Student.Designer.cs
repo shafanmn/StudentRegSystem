@@ -44,14 +44,28 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvStSearch = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblStEnFee = new System.Windows.Forms.Label();
+            this.lblStEnDuration = new System.Windows.Forms.Label();
+            this.lblStEnName = new System.Windows.Forms.Label();
+            this.lblStEnID = new System.Windows.Forms.Label();
+            this.btnStApplyCourse = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogoff
             // 
-            this.btnLogoff.Location = new System.Drawing.Point(544, 3);
+            this.btnLogoff.Location = new System.Drawing.Point(533, 3);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(61, 31);
             this.btnLogoff.TabIndex = 0;
@@ -63,11 +77,12 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 16);
+            this.tabControl1.Location = new System.Drawing.Point(-4, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(602, 290);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -200,19 +215,137 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.Silver;
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(594, 264);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Enroll";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvStSearch
+            // 
+            this.dgvStSearch.AllowUserToAddRows = false;
+            this.dgvStSearch.AllowUserToDeleteRows = false;
+            this.dgvStSearch.AllowUserToResizeRows = false;
+            this.dgvStSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStSearch.Location = new System.Drawing.Point(6, 19);
+            this.dgvStSearch.Name = "dgvStSearch";
+            this.dgvStSearch.ReadOnly = true;
+            this.dgvStSearch.RowHeadersVisible = false;
+            this.dgvStSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStSearch.Size = new System.Drawing.Size(210, 219);
+            this.dgvStSearch.TabIndex = 0;
+            this.dgvStSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvStSearch_MouseClick);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnStApplyCourse);
+            this.groupBox2.Controls.Add(this.lblStEnFee);
+            this.groupBox2.Controls.Add(this.lblStEnDuration);
+            this.groupBox2.Controls.Add(this.lblStEnName);
+            this.groupBox2.Controls.Add(this.lblStEnID);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.dgvStSearch);
+            this.groupBox2.Location = new System.Drawing.Point(4, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(407, 254);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Available Courses";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(220, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "ID";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(220, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(220, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Duration";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(220, 148);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Course Fee";
+            // 
+            // lblStEnFee
+            // 
+            this.lblStEnFee.AutoSize = true;
+            this.lblStEnFee.Location = new System.Drawing.Point(282, 148);
+            this.lblStEnFee.Name = "lblStEnFee";
+            this.lblStEnFee.Size = new System.Drawing.Size(19, 13);
+            this.lblStEnFee.TabIndex = 8;
+            this.lblStEnFee.Text = "- - ";
+            // 
+            // lblStEnDuration
+            // 
+            this.lblStEnDuration.AutoSize = true;
+            this.lblStEnDuration.Location = new System.Drawing.Point(282, 108);
+            this.lblStEnDuration.Name = "lblStEnDuration";
+            this.lblStEnDuration.Size = new System.Drawing.Size(19, 13);
+            this.lblStEnDuration.TabIndex = 7;
+            this.lblStEnDuration.Text = "- - ";
+            // 
+            // lblStEnName
+            // 
+            this.lblStEnName.AutoSize = true;
+            this.lblStEnName.Location = new System.Drawing.Point(282, 68);
+            this.lblStEnName.Name = "lblStEnName";
+            this.lblStEnName.Size = new System.Drawing.Size(16, 13);
+            this.lblStEnName.TabIndex = 6;
+            this.lblStEnName.Text = "- -";
+            // 
+            // lblStEnID
+            // 
+            this.lblStEnID.AutoSize = true;
+            this.lblStEnID.Location = new System.Drawing.Point(282, 28);
+            this.lblStEnID.Name = "lblStEnID";
+            this.lblStEnID.Size = new System.Drawing.Size(13, 13);
+            this.lblStEnID.TabIndex = 5;
+            this.lblStEnID.Text = "--";
+            // 
+            // btnStApplyCourse
+            // 
+            this.btnStApplyCourse.Enabled = false;
+            this.btnStApplyCourse.Location = new System.Drawing.Point(223, 209);
+            this.btnStApplyCourse.Name = "btnStApplyCourse";
+            this.btnStApplyCourse.Size = new System.Drawing.Size(83, 29);
+            this.btnStApplyCourse.TabIndex = 9;
+            this.btnStApplyCourse.Text = "Apply Course";
+            this.btnStApplyCourse.UseVisualStyleBackColor = true;
             // 
             // frm_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 309);
+            this.ClientSize = new System.Drawing.Size(595, 302);
             this.ControlBox = false;
             this.Controls.Add(this.btnLogoff);
             this.Controls.Add(this.tabControl1);
@@ -224,6 +357,10 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,5 +383,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvStSearch;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnStApplyCourse;
+        private System.Windows.Forms.Label lblStEnFee;
+        private System.Windows.Forms.Label lblStEnDuration;
+        private System.Windows.Forms.Label lblStEnName;
+        private System.Windows.Forms.Label lblStEnID;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
