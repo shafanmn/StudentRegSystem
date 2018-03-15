@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StudentRegSystem.Classes;
 using System.Data.SqlClient;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace StudentRegSystem.Forms
 {
@@ -98,10 +100,30 @@ namespace StudentRegSystem.Forms
                 lblStEnID.Text = dr[0].ToString();
                 lblStEnName.Text = dr[1].ToString();
                 lblStEnDuration.Text = dr[2].ToString() +" Months";
-                lblStEnFee.Text = (Decimal.Parse(dr[3].ToString()) / 100).ToString("C", System.Globalization.CultureInfo.GetCultureInfo("ta"));
+                lblStEnFee.Text = (Decimal.Parse(dr[3].ToString())).ToString("C", System.Globalization.CultureInfo.GetCultureInfo("ta-LK"));
             }
             conn.Close();
             btnStApplyCourse.Enabled = true;
+        }
+
+        private void btnStApplyCourse_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Are you sure you want to Apply for\n" + lblStEnID.Text + " - " + lblStEnName.Text +"?\nThe Course fee is " +lblStEnFee.Text, "Confirm", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.Yes)
+            {
+                string cid = lblStEnID.Text;
+                string fee = lblStEnFee.Text.Substring(4);
+                double amount = double.Parse(fee, NumberStyles.Currency);
+                
+                fun.executeQuery("INSERT INTO Enroll(studentId,courseId,amount) VALUES('" + this.studentId + "','" + cid + "',"+amount+");");
+                tabControl1_SelectedIndexChanged(sender, e);
+                lblStEnID.Text = "--";
+                lblStEnName.Text = "--";
+                lblStEnDuration.Text = "--";
+                lblStEnFee.Text = "--";
+                btnStApplyCourse.Enabled = false;
+                
+            }
         }
     }//End Class
 }//End Namespace

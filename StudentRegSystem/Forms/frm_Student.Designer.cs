@@ -44,28 +44,35 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvStSearch = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.btnStApplyCourse = new System.Windows.Forms.Button();
             this.lblStEnFee = new System.Windows.Forms.Label();
             this.lblStEnDuration = new System.Windows.Forms.Label();
             this.lblStEnName = new System.Windows.Forms.Label();
             this.lblStEnID = new System.Windows.Forms.Label();
-            this.btnStApplyCourse = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvStSearch = new System.Windows.Forms.DataGridView();
+            this.dgvStEnrolled = new System.Windows.Forms.DataGridView();
+            this.dgvStPayPending = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStEnrolled)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStPayPending)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogoff
             // 
-            this.btnLogoff.Location = new System.Drawing.Point(533, 3);
+            this.btnLogoff.Location = new System.Drawing.Point(563, 3);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(61, 31);
             this.btnLogoff.TabIndex = 0;
@@ -80,7 +87,7 @@
             this.tabControl1.Location = new System.Drawing.Point(-4, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(602, 290);
+            this.tabControl1.Size = new System.Drawing.Size(635, 290);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -91,7 +98,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(594, 264);
+            this.tabPage1.Size = new System.Drawing.Size(627, 264);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "My Profile";
             // 
@@ -216,29 +223,18 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Silver;
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.dgvStPayPending);
+            this.tabPage2.Controls.Add(this.dgvStEnrolled);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(594, 264);
+            this.tabPage2.Size = new System.Drawing.Size(627, 264);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Enroll";
-            // 
-            // dgvStSearch
-            // 
-            this.dgvStSearch.AllowUserToAddRows = false;
-            this.dgvStSearch.AllowUserToDeleteRows = false;
-            this.dgvStSearch.AllowUserToResizeRows = false;
-            this.dgvStSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStSearch.Location = new System.Drawing.Point(6, 19);
-            this.dgvStSearch.Name = "dgvStSearch";
-            this.dgvStSearch.ReadOnly = true;
-            this.dgvStSearch.RowHeadersVisible = false;
-            this.dgvStSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStSearch.Size = new System.Drawing.Size(210, 219);
-            this.dgvStSearch.TabIndex = 0;
-            this.dgvStSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvStSearch_MouseClick);
             // 
             // groupBox2
             // 
@@ -259,78 +255,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Available Courses";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "ID";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(220, 68);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 108);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Duration";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(220, 148);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Course Fee";
-            // 
-            // lblStEnFee
-            // 
-            this.lblStEnFee.AutoSize = true;
-            this.lblStEnFee.Location = new System.Drawing.Point(282, 148);
-            this.lblStEnFee.Name = "lblStEnFee";
-            this.lblStEnFee.Size = new System.Drawing.Size(19, 13);
-            this.lblStEnFee.TabIndex = 8;
-            this.lblStEnFee.Text = "- - ";
-            // 
-            // lblStEnDuration
-            // 
-            this.lblStEnDuration.AutoSize = true;
-            this.lblStEnDuration.Location = new System.Drawing.Point(282, 108);
-            this.lblStEnDuration.Name = "lblStEnDuration";
-            this.lblStEnDuration.Size = new System.Drawing.Size(19, 13);
-            this.lblStEnDuration.TabIndex = 7;
-            this.lblStEnDuration.Text = "- - ";
-            // 
-            // lblStEnName
-            // 
-            this.lblStEnName.AutoSize = true;
-            this.lblStEnName.Location = new System.Drawing.Point(282, 68);
-            this.lblStEnName.Name = "lblStEnName";
-            this.lblStEnName.Size = new System.Drawing.Size(16, 13);
-            this.lblStEnName.TabIndex = 6;
-            this.lblStEnName.Text = "- -";
-            // 
-            // lblStEnID
-            // 
-            this.lblStEnID.AutoSize = true;
-            this.lblStEnID.Location = new System.Drawing.Point(282, 28);
-            this.lblStEnID.Name = "lblStEnID";
-            this.lblStEnID.Size = new System.Drawing.Size(13, 13);
-            this.lblStEnID.TabIndex = 5;
-            this.lblStEnID.Text = "--";
-            // 
             // btnStApplyCourse
             // 
             this.btnStApplyCourse.Enabled = false;
@@ -340,12 +264,159 @@
             this.btnStApplyCourse.TabIndex = 9;
             this.btnStApplyCourse.Text = "Apply Course";
             this.btnStApplyCourse.UseVisualStyleBackColor = true;
+            this.btnStApplyCourse.Click += new System.EventHandler(this.btnStApplyCourse_Click);
+            // 
+            // lblStEnFee
+            // 
+            this.lblStEnFee.AutoSize = true;
+            this.lblStEnFee.Location = new System.Drawing.Point(279, 148);
+            this.lblStEnFee.Name = "lblStEnFee";
+            this.lblStEnFee.Size = new System.Drawing.Size(19, 13);
+            this.lblStEnFee.TabIndex = 8;
+            this.lblStEnFee.Text = "- - ";
+            // 
+            // lblStEnDuration
+            // 
+            this.lblStEnDuration.AutoSize = true;
+            this.lblStEnDuration.Location = new System.Drawing.Point(279, 108);
+            this.lblStEnDuration.Name = "lblStEnDuration";
+            this.lblStEnDuration.Size = new System.Drawing.Size(19, 13);
+            this.lblStEnDuration.TabIndex = 7;
+            this.lblStEnDuration.Text = "- - ";
+            // 
+            // lblStEnName
+            // 
+            this.lblStEnName.AutoSize = true;
+            this.lblStEnName.Location = new System.Drawing.Point(279, 68);
+            this.lblStEnName.Name = "lblStEnName";
+            this.lblStEnName.Size = new System.Drawing.Size(16, 13);
+            this.lblStEnName.TabIndex = 6;
+            this.lblStEnName.Text = "- -";
+            // 
+            // lblStEnID
+            // 
+            this.lblStEnID.AutoSize = true;
+            this.lblStEnID.Location = new System.Drawing.Point(279, 28);
+            this.lblStEnID.Name = "lblStEnID";
+            this.lblStEnID.Size = new System.Drawing.Size(13, 13);
+            this.lblStEnID.TabIndex = 5;
+            this.lblStEnID.Text = "--";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(218, 148);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Course Fee";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(218, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Duration";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(218, 68);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(218, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "ID";
+            // 
+            // dgvStSearch
+            // 
+            this.dgvStSearch.AllowUserToAddRows = false;
+            this.dgvStSearch.AllowUserToDeleteRows = false;
+            this.dgvStSearch.AllowUserToResizeRows = false;
+            this.dgvStSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStSearch.Location = new System.Drawing.Point(6, 19);
+            this.dgvStSearch.Name = "dgvStSearch";
+            this.dgvStSearch.ReadOnly = true;
+            this.dgvStSearch.RowHeadersVisible = false;
+            this.dgvStSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStSearch.Size = new System.Drawing.Size(210, 219);
+            this.dgvStSearch.TabIndex = 0;
+            this.dgvStSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvStSearch_MouseClick);
+            // 
+            // dgvStEnrolled
+            // 
+            this.dgvStEnrolled.AllowUserToAddRows = false;
+            this.dgvStEnrolled.AllowUserToDeleteRows = false;
+            this.dgvStEnrolled.AllowUserToResizeRows = false;
+            this.dgvStEnrolled.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStEnrolled.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStEnrolled.Location = new System.Drawing.Point(417, 25);
+            this.dgvStEnrolled.Name = "dgvStEnrolled";
+            this.dgvStEnrolled.ReadOnly = true;
+            this.dgvStEnrolled.RowHeadersVisible = false;
+            this.dgvStEnrolled.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStEnrolled.Size = new System.Drawing.Size(207, 110);
+            this.dgvStEnrolled.TabIndex = 3;
+            // 
+            // dgvStPayPending
+            // 
+            this.dgvStPayPending.AllowUserToAddRows = false;
+            this.dgvStPayPending.AllowUserToDeleteRows = false;
+            this.dgvStPayPending.AllowUserToResizeRows = false;
+            this.dgvStPayPending.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStPayPending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStPayPending.Location = new System.Drawing.Point(417, 154);
+            this.dgvStPayPending.Name = "dgvStPayPending";
+            this.dgvStPayPending.ReadOnly = true;
+            this.dgvStPayPending.RowHeadersVisible = false;
+            this.dgvStPayPending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStPayPending.Size = new System.Drawing.Size(207, 106);
+            this.dgvStPayPending.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(414, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Payment Pending";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(414, 138);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Enrolled";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(531, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "amount";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frm_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 302);
+            this.ClientSize = new System.Drawing.Size(627, 302);
             this.ControlBox = false;
             this.Controls.Add(this.btnLogoff);
             this.Controls.Add(this.tabControl1);
@@ -358,9 +429,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).EndInit();
+            this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStEnrolled)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStPayPending)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,5 +468,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgvStPayPending;
+        private System.Windows.Forms.DataGridView dgvStEnrolled;
     }
 }
