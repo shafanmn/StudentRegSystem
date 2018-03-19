@@ -17,7 +17,7 @@ namespace StudentRegSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Reg());
+            Application.Run(new frm_Login());
         }
     }
 }

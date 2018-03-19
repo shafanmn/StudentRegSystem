@@ -95,9 +95,13 @@ namespace StudentRegSystem.Classes
 
         public void LoadToDatagridview(DataGridView dgv, string q)
         {
+            dgv.DataSource = null;
+            dgv.Refresh();
+
             SqlConnection c = dbConnect.getConnection();
             var dataAdapter = new SqlDataAdapter(q, c);
 
+            
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
             dataAdapter.Fill(ds);
@@ -105,6 +109,38 @@ namespace StudentRegSystem.Classes
             dgv.DataSource = ds.Tables[0];
         }
 
+        public SqlDataReader getDetails(string query)
+        {
+            SqlConnection c = dbConnect.getConnection();
+            SqlCommand cmd = new SqlCommand(query, c);
+           
+            if(c.State == ConnectionState.Closed)
+                c.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            //c.Close();
+            return dr;
+            
+        }
+
+        public void executeQuery(string query)
+        {
+            SqlConnection conn = dbConnect.getConnection();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                conn.Open();
+                if (cmd.ExecuteNonQuery() > 0)
+                    MessageBox.Show("Details Modified Successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         
     }//End of Class
 }

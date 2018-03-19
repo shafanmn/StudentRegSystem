@@ -68,17 +68,17 @@
             this.btnSearchCourse = new System.Windows.Forms.Button();
             this.txtCoSearch = new System.Windows.Forms.TextBox();
             this.numCoDur = new System.Windows.Forms.NumericUpDown();
+            this.txtCoName = new System.Windows.Forms.TextBox();
             this.numCoFee = new System.Windows.Forms.NumericUpDown();
+            this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.btnCoClear = new System.Windows.Forms.Button();
+            this.btnCoNew = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.btnCoSave = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.lblCoId = new System.Windows.Forms.Label();
-            this.btnCoSave = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnCoNew = new System.Windows.Forms.Button();
-            this.dgvCourses = new System.Windows.Forms.DataGridView();
-            this.txtCoName = new System.Windows.Forms.TextBox();
             this.btnLogoff = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -517,6 +517,14 @@
             0,
             0});
             // 
+            // txtCoName
+            // 
+            this.txtCoName.Enabled = false;
+            this.txtCoName.Location = new System.Drawing.Point(515, 88);
+            this.txtCoName.Name = "txtCoName";
+            this.txtCoName.Size = new System.Drawing.Size(215, 20);
+            this.txtCoName.TabIndex = 7;
+            // 
             // numCoFee
             // 
             this.numCoFee.DecimalPlaces = 2;
@@ -547,6 +555,21 @@
             0,
             0});
             // 
+            // dgvCourses
+            // 
+            this.dgvCourses.AllowUserToAddRows = false;
+            this.dgvCourses.AllowUserToDeleteRows = false;
+            this.dgvCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.Location = new System.Drawing.Point(6, 51);
+            this.dgvCourses.Name = "dgvCourses";
+            this.dgvCourses.ReadOnly = true;
+            this.dgvCourses.RowHeadersVisible = false;
+            this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCourses.Size = new System.Drawing.Size(394, 257);
+            this.dgvCourses.TabIndex = 0;
+            this.dgvCourses.Click += new System.EventHandler(this.dgvCourses_Click);
+            // 
             // btnCoClear
             // 
             this.btnCoClear.Enabled = false;
@@ -558,6 +581,16 @@
             this.btnCoClear.UseVisualStyleBackColor = true;
             this.btnCoClear.Click += new System.EventHandler(this.btnCoClear_Click);
             // 
+            // btnCoNew
+            // 
+            this.btnCoNew.Location = new System.Drawing.Point(515, 238);
+            this.btnCoNew.Name = "btnCoNew";
+            this.btnCoNew.Size = new System.Drawing.Size(50, 30);
+            this.btnCoNew.TabIndex = 13;
+            this.btnCoNew.Text = "New";
+            this.btnCoNew.UseVisualStyleBackColor = true;
+            this.btnCoNew.Click += new System.EventHandler(this.btnCoNew_Click);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -567,6 +600,15 @@
             this.label18.TabIndex = 2;
             this.label18.Text = "ID  :";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(417, 177);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 13);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Course Fee";
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -575,6 +617,16 @@
             this.label17.Size = new System.Drawing.Size(71, 13);
             this.label17.TabIndex = 3;
             this.label17.Text = "Course Name";
+            // 
+            // btnCoSave
+            // 
+            this.btnCoSave.Enabled = false;
+            this.btnCoSave.Location = new System.Drawing.Point(575, 238);
+            this.btnCoSave.Name = "btnCoSave";
+            this.btnCoSave.Size = new System.Drawing.Size(50, 30);
+            this.btnCoSave.TabIndex = 14;
+            this.btnCoSave.Text = "Save";
+            this.btnCoSave.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -594,58 +646,6 @@
             this.lblCoId.TabIndex = 1;
             this.lblCoId.Text = "label1";
             // 
-            // btnCoSave
-            // 
-            this.btnCoSave.Enabled = false;
-            this.btnCoSave.Location = new System.Drawing.Point(575, 238);
-            this.btnCoSave.Name = "btnCoSave";
-            this.btnCoSave.Size = new System.Drawing.Size(50, 30);
-            this.btnCoSave.TabIndex = 14;
-            this.btnCoSave.Text = "Save";
-            this.btnCoSave.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(417, 177);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 13);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Course Fee";
-            // 
-            // btnCoNew
-            // 
-            this.btnCoNew.Location = new System.Drawing.Point(515, 238);
-            this.btnCoNew.Name = "btnCoNew";
-            this.btnCoNew.Size = new System.Drawing.Size(50, 30);
-            this.btnCoNew.TabIndex = 13;
-            this.btnCoNew.Text = "New";
-            this.btnCoNew.UseVisualStyleBackColor = true;
-            this.btnCoNew.Click += new System.EventHandler(this.btnCoNew_Click);
-            // 
-            // dgvCourses
-            // 
-            this.dgvCourses.AllowUserToAddRows = false;
-            this.dgvCourses.AllowUserToDeleteRows = false;
-            this.dgvCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourses.Location = new System.Drawing.Point(6, 51);
-            this.dgvCourses.Name = "dgvCourses";
-            this.dgvCourses.ReadOnly = true;
-            this.dgvCourses.RowHeadersVisible = false;
-            this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourses.Size = new System.Drawing.Size(394, 257);
-            this.dgvCourses.TabIndex = 0;
-            this.dgvCourses.Click += new System.EventHandler(this.dgvCourses_Click);
-            // 
-            // txtCoName
-            // 
-            this.txtCoName.Enabled = false;
-            this.txtCoName.Location = new System.Drawing.Point(515, 88);
-            this.txtCoName.Name = "txtCoName";
-            this.txtCoName.Size = new System.Drawing.Size(215, 20);
-            this.txtCoName.TabIndex = 7;
-            // 
             // btnLogoff
             // 
             this.btnLogoff.Location = new System.Drawing.Point(697, 3);
@@ -661,6 +661,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 359);
+            this.ControlBox = false;
             this.Controls.Add(this.btnLogoff);
             this.Controls.Add(this.tabControl1);
             this.Name = "frm_Reg";
