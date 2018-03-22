@@ -45,10 +45,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblStPending = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvStPayPending = new System.Windows.Forms.DataGridView();
-            this.dgvStEnrolled = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnStApplyCourse = new System.Windows.Forms.Button();
             this.lblStEnFee = new System.Windows.Forms.Label();
@@ -60,14 +58,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvStSearch = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvStEnrolled = new System.Windows.Forms.DataGridView();
+            this.btnStCancelApp = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStPayPending)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStEnrolled)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStEnrolled)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogoff
@@ -84,7 +86,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(-4, 16);
+            this.tabControl1.Location = new System.Drawing.Point(-3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(742, 290);
@@ -94,6 +96,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Silver;
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -198,9 +201,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "N.i.C";
+            this.label4.Text = "N.I.C";
             // 
             // label3
             // 
@@ -223,11 +226,10 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Silver;
+            this.tabPage2.Controls.Add(this.btnStCancelApp);
             this.tabPage2.Controls.Add(this.lblStPending);
-            this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.dgvStPayPending);
-            this.tabPage2.Controls.Add(this.dgvStEnrolled);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -238,30 +240,21 @@
             // 
             // lblStPending
             // 
-            this.lblStPending.Location = new System.Drawing.Point(599, 6);
+            this.lblStPending.Location = new System.Drawing.Point(598, 170);
             this.lblStPending.Name = "lblStPending";
             this.lblStPending.Size = new System.Drawing.Size(129, 16);
             this.lblStPending.TabIndex = 7;
             this.lblStPending.Text = "amount";
             this.lblStPending.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(414, 136);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Enrolled";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(414, 9);
+            this.label10.Location = new System.Drawing.Point(502, 173);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 13);
+            this.label10.Size = new System.Drawing.Size(95, 13);
             this.label10.TabIndex = 5;
-            this.label10.Text = "Payment Pending";
+            this.label10.Text = "Payments Pending";
             // 
             // dgvStPayPending
             // 
@@ -275,23 +268,9 @@
             this.dgvStPayPending.ReadOnly = true;
             this.dgvStPayPending.RowHeadersVisible = false;
             this.dgvStPayPending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStPayPending.Size = new System.Drawing.Size(311, 110);
+            this.dgvStPayPending.Size = new System.Drawing.Size(311, 142);
             this.dgvStPayPending.TabIndex = 4;
-            // 
-            // dgvStEnrolled
-            // 
-            this.dgvStEnrolled.AllowUserToAddRows = false;
-            this.dgvStEnrolled.AllowUserToDeleteRows = false;
-            this.dgvStEnrolled.AllowUserToResizeRows = false;
-            this.dgvStEnrolled.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStEnrolled.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStEnrolled.Location = new System.Drawing.Point(417, 151);
-            this.dgvStEnrolled.Name = "dgvStEnrolled";
-            this.dgvStEnrolled.ReadOnly = true;
-            this.dgvStEnrolled.RowHeadersVisible = false;
-            this.dgvStEnrolled.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStEnrolled.Size = new System.Drawing.Size(311, 109);
-            this.dgvStEnrolled.TabIndex = 3;
+            this.dgvStPayPending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStPayPending_CellClick);
             // 
             // groupBox2
             // 
@@ -411,11 +390,47 @@
             this.dgvStSearch.TabIndex = 0;
             this.dgvStSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvStSearch_MouseClick);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvStEnrolled);
+            this.groupBox3.Location = new System.Drawing.Point(258, 8);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(464, 249);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Enrolled Courses";
+            // 
+            // dgvStEnrolled
+            // 
+            this.dgvStEnrolled.AllowUserToAddRows = false;
+            this.dgvStEnrolled.AllowUserToDeleteRows = false;
+            this.dgvStEnrolled.AllowUserToResizeRows = false;
+            this.dgvStEnrolled.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStEnrolled.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStEnrolled.Location = new System.Drawing.Point(6, 19);
+            this.dgvStEnrolled.Name = "dgvStEnrolled";
+            this.dgvStEnrolled.ReadOnly = true;
+            this.dgvStEnrolled.RowHeadersVisible = false;
+            this.dgvStEnrolled.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStEnrolled.Size = new System.Drawing.Size(328, 109);
+            this.dgvStEnrolled.TabIndex = 4;
+            // 
+            // btnStCancelApp
+            // 
+            this.btnStCancelApp.Enabled = false;
+            this.btnStCancelApp.Location = new System.Drawing.Point(622, 213);
+            this.btnStCancelApp.Name = "btnStCancelApp";
+            this.btnStCancelApp.Size = new System.Drawing.Size(105, 33);
+            this.btnStCancelApp.TabIndex = 8;
+            this.btnStCancelApp.Text = "Cancel Application";
+            this.btnStCancelApp.UseVisualStyleBackColor = true;
+            this.btnStCancelApp.Click += new System.EventHandler(this.btnStCancelApp_Click);
+            // 
             // frm_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 302);
+            this.ClientSize = new System.Drawing.Size(740, 302);
             this.ControlBox = false;
             this.Controls.Add(this.btnLogoff);
             this.Controls.Add(this.tabControl1);
@@ -430,10 +445,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStPayPending)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStEnrolled)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStSearch)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStEnrolled)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,9 +484,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblStPending;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvStPayPending;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvStEnrolled;
+        private System.Windows.Forms.Button btnStCancelApp;
     }
 }

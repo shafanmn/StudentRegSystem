@@ -373,6 +373,10 @@ namespace StudentRegSystem.Forms
                 dgvCourses.Columns[2].Width = 25;   //Months
                 dgvCourses.Columns[3].Width = 65;   //Fee
                 lblCoId.Text = fun.getNextCourseId(this.conn);
+            }else if (tabControl1.SelectedIndex == 2)
+            {
+                fun.LoadToDatagridview(dgvRegPayment, "SELECT c.Id 'ID', c.name 'Name', CONVERT(varchar,CAST(c.fee AS money),1) 'Amount', CONVERT(varchar,CAST(e.balance AS money),1) 'Pending' FROm Enroll e, Course c WHERE c.Id = e.courseId AND e.studentId = 'ST001' AND e.balance > 0");
+                
             }
         }
 
@@ -447,6 +451,9 @@ namespace StudentRegSystem.Forms
                 txtCoSearch.Enabled = false;
                 string q = "SELECT Id 'ID', name 'Name', duration 'Months', CONVERT(varchar,CAST(fee AS Money),1) 'Fee' FROM Course WHERE Id like '%"+key+"%' OR name like '%"+key+"%' ;";
                 fun.LoadToDatagridview(dgvCourses, q);
+                dgvCourses.Columns[0].Width = 35;   //Id
+                dgvCourses.Columns[2].Width = 25;   //Months
+                dgvCourses.Columns[3].Width = 65;   //Fee
             }
             else
             {

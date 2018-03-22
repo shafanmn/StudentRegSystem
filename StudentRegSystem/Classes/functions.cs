@@ -130,7 +130,7 @@ namespace StudentRegSystem.Classes
             {
                 conn.Open();
                 if (cmd.ExecuteNonQuery() > 0)
-                    MessageBox.Show("Details Modified Successfully!");
+                    MessageBox.Show("Details Updated Successfully!");
             }
             catch (Exception ex)
             {

@@ -80,6 +80,15 @@
             this.label16 = new System.Windows.Forms.Label();
             this.lblCoId = new System.Windows.Forms.Label();
             this.btnLogoff = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.dgvRegPayment = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,12 +99,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCoDur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCoFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegPayment)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.txtCrName);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(3, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -479,9 +492,9 @@
             // 
             // btnSearchCourse
             // 
-            this.btnSearchCourse.Location = new System.Drawing.Point(328, 12);
+            this.btnSearchCourse.Location = new System.Drawing.Point(328, 19);
             this.btnSearchCourse.Name = "btnSearchCourse";
-            this.btnSearchCourse.Size = new System.Drawing.Size(72, 33);
+            this.btnSearchCourse.Size = new System.Drawing.Size(72, 26);
             this.btnSearchCourse.TabIndex = 19;
             this.btnSearchCourse.Text = "Search";
             this.btnSearchCourse.UseVisualStyleBackColor = true;
@@ -489,7 +502,7 @@
             // 
             // txtCoSearch
             // 
-            this.txtCoSearch.Location = new System.Drawing.Point(6, 19);
+            this.txtCoSearch.Location = new System.Drawing.Point(6, 22);
             this.txtCoSearch.Name = "txtCoSearch";
             this.txtCoSearch.Size = new System.Drawing.Size(316, 20);
             this.txtCoSearch.TabIndex = 18;
@@ -656,6 +669,96 @@
             this.btnLogoff.UseVisualStyleBackColor = true;
             this.btnLogoff.Click += new System.EventHandler(this.btnLogoff_Click);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.Silver;
+            this.tabPage2.Controls.Add(this.dgvRegPayment);
+            this.tabPage2.Controls.Add(this.numericUpDown1);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(750, 314);
+            this.tabPage2.TabIndex = 2;
+            this.tabPage2.Text = "Payments";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Student Id";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(8, 50);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Student Name";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(86, 50);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(75, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Student Name";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(107, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(54, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(86, 19);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(21, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "ST";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(8, 85);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(43, 13);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "Amount";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(89, 83);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(101, 20);
+            this.numericUpDown1.TabIndex = 6;
+            // 
+            // dgvRegPayment
+            // 
+            this.dgvRegPayment.AllowUserToAddRows = false;
+            this.dgvRegPayment.AllowUserToDeleteRows = false;
+            this.dgvRegPayment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRegPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegPayment.Location = new System.Drawing.Point(11, 109);
+            this.dgvRegPayment.Name = "dgvRegPayment";
+            this.dgvRegPayment.RowHeadersVisible = false;
+            this.dgvRegPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRegPayment.Size = new System.Drawing.Size(347, 146);
+            this.dgvRegPayment.TabIndex = 7;
+            // 
             // frm_Reg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,6 +784,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCoDur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCoFee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegPayment)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -739,5 +846,14 @@
         private System.Windows.Forms.TextBox txtCoName;
         private System.Windows.Forms.Button btnSearchCourse;
         private System.Windows.Forms.TextBox txtCoSearch;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dgvRegPayment;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
